@@ -41,6 +41,19 @@
         button:hover {
             background-color: #1991db;
         }
+        .tweet-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #1DA1F2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        .tweet-button:hover {
+            background-color: #1991db;
+        }
         #message {
             margin-top: 8px;
             font-size: 14px;
@@ -493,15 +506,13 @@
             const normalizedWhitelist = whitelist.map(address => address.toLowerCase());
 
             if (normalizedWhitelist.includes(normalizedInput)) {
-                messageDiv.innerHTML = "Your wallet is whitelisted for TOBi! Tweet about it now!";
-                
                 // Preformed tweet text
-                const tweetText = encodeURIComponent("I'm whitelisted for TOBi! Excited to join the community! 🎉 #TOBiWhitelist");
-                
-                // Redirect to X with preformed tweet
-                setTimeout(() => {
-                    window.location.href = `https://x.com/intent/tweet?text=${tweetText}`;
-                }, 2000); // 2-second delay to show message
+                const tweetText = encodeURIComponent("I'm whitelisted for @TOBiHuBXYZ upcoming #Freemint on $SOL! Minting on @MagicEden 6/6/2025 4PM EST ! 👽👽#TOBi👽👽 Dont miss this legendary project!");
+                // Create tweet button HTML
+                messageDiv.innerHTML = `
+                    Your wallet is whitelisted for TOBi! Tweet about it now!<br>
+                    <a href="https://x.com/intent/tweet?text=${tweetText}" class="tweet-button" target="_blank">Tweet Now</a>
+                `;
             } else {
                 messageDiv.innerHTML = "Sorry, your wallet is not whitelisted for TOBi.";
             }
